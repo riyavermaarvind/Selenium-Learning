@@ -1,0 +1,23 @@
+package week4.day2;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WindowHandling {
+
+	private static Set<String> windowHandles;
+
+	public static void main(String[] args) {
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://www.irctc.co.in/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//a[text()='FLIGHTS']")).click();
+		
+		String childAddress = driver.getWindowHandle();
+		System.out.println("Child address is"+childAddress);
+
+	}
+
+}
